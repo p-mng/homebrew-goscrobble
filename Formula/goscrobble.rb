@@ -7,7 +7,7 @@ class Goscrobble < Formula
 
   depends_on "go" => :build
 
-  on macos_do
+  on_macos do
     depends_on "media-control"
     depends_on "terminal-notifier"
   end
