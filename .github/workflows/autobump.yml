@@ -1,6 +1,5 @@
 # brew tap-new uses this file to generate an autobump workflow for the new tap
 name: brew bump
-
 on:
   push:
     branches:
@@ -10,13 +9,10 @@ on:
   schedule:
     # Every day at 16:25 UTC
     - cron: 25 16 * * *
-
 permissions: {}
-
 defaults:
   run:
     shell: bash -xeuo pipefail {0}
-
 jobs:
   autobump:
     runs-on: ubuntu-latest
@@ -27,11 +23,9 @@ jobs:
       - name: Set up Homebrew
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@fd832223f9f99ebf0244dd20658680e5d4aca049 # 2026.08.03.2
-
       - name: Set up git
         id: git_setup
         uses: Homebrew/actions/git-user-config@fd832223f9f99ebf0244dd20658680e5d4aca049 # 2026.08.03.2
-
       - name: Bump formulae
         env:
           HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
